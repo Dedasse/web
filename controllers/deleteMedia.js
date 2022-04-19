@@ -4,7 +4,7 @@ const File = db.files
 
 const deleteMedia = async (req, res) => {
     const fs = require("fs")
-    const path = "../client/public/Files/"
+    const path = "public/Files/"
     console.log("deleting media usr: " + req.userPrivilege)
     File.findOne({where: {id: req.body.mediaId}})
         .then(image => {
