@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {pdfjs} from "react-pdf";
 import {deleteFile,updateFile} from '../../api';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+import { useDataContext } from '../../context/DataContext';
 
 
-
-const PreView = ({file,pdfs,setPdfs}) => {
+const PreView = ({file}) => {
+  const {media,setMedia} = useDataContext();
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [time, setTime] = useState(file.showTime)
@@ -15,8 +16,8 @@ const PreView = ({file,pdfs,setPdfs}) => {
     setNumPages(numPages);
   }
   const deletee = (data) => {
-     deleteFile(withCredentials, data).then((res)=> res === 200?setPdfs(pdfs.filter(id => id.id != file.id)):null)
-    
+    deleteFile(withCredentials, data).then((res) => res === 200 ?setMedia(media.filter(id => id.id != file.id)):null)
+    getUpdate()
    
   }
  

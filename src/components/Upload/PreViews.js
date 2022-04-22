@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { Document, Page, pdfjs   } from "react-pdf"
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+import { useDataContext } from '../../context/DataContext';
 
 
-
-const PreViews = ({files, setFiles}) => {
+const PreViews = () => {
+  const {files, setFiles} = useDataContext();
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
  
@@ -17,7 +18,7 @@ const PreViews = ({files, setFiles}) => {
     setFiles(aas)
   }
  
-
+console.log("HEll",files)
  
   const images = files.map((file) => (
     <div key={file.name} style={{border: "2px solid black", position: "relative"  }} >

@@ -1,16 +1,17 @@
 import React from 'react'
-import axios from 'axios';
-import Inserver from './Inserver';
+
 import { getMedia, postPosts } from '../../api';
 import './Upload.css';
+import { useDataContext } from '../../context/DataContext';
 
-const Buttons = ({files, setFiles,media,setMedia}) => {
- 
-  const save = () => {
-    postPosts(files, setFiles)
-    setFiles([])
-    /*setMedia([])
-    getMedia(media,setMedia)*/
+const Buttons = () => {
+  const {files, setFiles, media,setMedia} =useDataContext()
+
+  const save =async () => {
+    await postPosts(files, setFiles)
+    await setFiles([])
+    await setMedia([])
+    await getMedia(media,setMedia)
   }
   
  

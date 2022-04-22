@@ -1,15 +1,13 @@
 import React,{useState} from 'react'
 import PreViews from './PreViews'
+import { useDataContext } from '../../context/DataContext'
 
-
-const Publish = ({files,setFiles}) => {
-  
-  
- 
+const Publish = () => {
+  const {files} =useDataContext()
   return (
     <div className="publish">
      
-      {files.length ? <PreViews files={files} setFiles={setFiles}/>: "no images"}
+      {files.length ? <PreViews />: "no images"}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import DataContextProvider from './context/DataContext'
 import {BrowserRouter as Router, Switch, Route, useHistory} from "react-router-dom";
 import Login from "./components/Auth/login.component";
 import SignUp from "./components/Auth/signup.component";
@@ -8,6 +9,7 @@ import Tabs from "./components/Tabs";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import {ReactNotifications, Store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+
 
 
 function App() {
@@ -33,20 +35,26 @@ function App() {
         })
     }
 
-    return (<Router>
-            <div className="App">
-                <ReactNotifications />
-                <div className="mouseButton">
-                <button onClick={startHandsfree}>Dönt click</button>
+    return (
+        <DataContextProvider>
+        <Router>
+           
+
+                <div className="App">
+                    <ReactNotifications />
+                    <div className="mouseButton">
+                    <button onClick={startHandsfree}>Dönt click</button>
+                    </div>
+                    <Switch>
+                        <Route exact path='/' component={Tabs}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/register" component={SignUp}/>
+                        <PrivateRoute path="/console" component={Console}/>
+                    </Switch>
                 </div>
-                <Switch>
-                    <Route exact path='/' component={Tabs}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/register" component={SignUp}/>
-                    <PrivateRoute path="/console" component={Console}/>
-                </Switch>
-            </div>
-        </Router>
+            
+            </Router>
+            </DataContextProvider>
     );
 }
 

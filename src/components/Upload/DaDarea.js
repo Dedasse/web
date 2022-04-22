@@ -1,9 +1,9 @@
-import React, { useState, useEffect,useCallback} from 'react'
+import React, { useCallback} from 'react'
 import {useDropzone} from 'react-dropzone';
+import { useDataContext } from '../../context/DataContext';
 
-
-const DaDarea = ({files,setFiles}) => {
- 
+const DaDarea = () => {
+  const {setFiles} = useDataContext()
   const onDrop = useCallback((acceptedFiles, rejectedfile) => {
     
     acceptedFiles.forEach(file => {
