@@ -13,14 +13,14 @@ const Buttons = () => {
     await setMedia([])
     await getMedia(media,setMedia)
   }
-  
- 
-  
+
+
+
 
   return (
-    <div className='buttonSave'>
-      <button onClick={()=>{save()}} >save</button>
-    </div>
+      <div className="btn btn-outline-primary" style={{width: "8rem", margin:"8px",}}>
+        <button onClick={()=>{save()}} >save</button>
+      </div>
   )
 }
 

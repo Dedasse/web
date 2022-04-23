@@ -50,12 +50,13 @@ export default function ScreenThree() {
 
     const pollTheme = {
         textColor: '#19181f',
-        mainColor: '#00B87B',
+        mainColor: '#7579ff',
         backgroundColor: 'white',
         alignment: 'center',
-        leftColor: '#00B87B',
-        rightColor: '#FF2E00'
+        leftColor: '#7579ff',
+        rightColor: '#d000ff'
     }
+
     function deletePoll(pollId){
         console.log("deleting poll-id " + pollId)
         axios.delete(serverUrl + 'api/vote/delete', {
