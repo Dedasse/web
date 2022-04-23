@@ -6,26 +6,29 @@ import React, {useState} from "react";
 import axios from "axios";
 import {Store} from "react-notifications-component";
 import {useHistory} from "react-router-dom";
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 
 const PlusButton = () => {
-
     const serverUrl = process.env.REACT_APP_SERVER_URL;
-
-    const [question, setQuestion] = useState("");
+    const [title, setTitle] = useState("");
+    const [newsText, setNewsText] = useState("");
+    const [isPinned, setIsPinned] = useState(false)
     const history = useHistory();
 
     function handleSubmit(event) {
         console.log("axios")
         event.preventDefault();
-        axios.post(serverUrl + "api/createpoll", {
-            question: question,
+        axios.post(serverUrl + "api/createnews", {
+            title: title,
+            newsText: newsText,
+            isPinned: isPinned
         }, {
             withCredentials: true,
         }).then((response) => {
             if (response.status === 200) {
                 Store.addNotification({
-                    message: "Poll created",
+                    message: "News added",
                     type: "success",
                     insert: "top",
                     container: "bottom-center",
@@ -128,20 +131,23 @@ const PlusButton = () => {
                                     <form onSubmit={handleSubmit}>
                                         <h3>New notification</h3>
                                         <div className="form-group">
-                                            <div className="form-check">
-                                                <input className="form-check-input position-static" type="checkbox"
-                                                       id="blankCheckbox" value="option1" aria-label="..."/>
-                                                <label className="form-check-label" htmlFor="inlineRadio1">Pinned</label>
-
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input position-static" type="checkbox"
-                                                       id="blankCheckbox" value="option1" aria-label="..."/>
-                                                <label className="form-check-label" htmlFor="inlineRadio1">Important</label>
-
+                                                <BootstrapSwitchButton
+                                                    width={200}
+                                                    checked={isPinned}
+                                                    onlabel='Pinned'
+                                                    offlabel='Not pinned'
+                                                    onChange={(checked: boolean) => {
+                                                        setIsPinned(checked)
+                                                    }}
+                                                />
+                                            <p></p>
+                                            <div className="form-group">
+                                                <label>Title</label>
+                                                <input onChange={(e) => setTitle(e.target.value)}
+                                                       className="form-control" placeholder="Notification title"/>
                                             </div>
                                             <label>Notification</label>
-                                            <input onChange={(e) => setQuestion(e.target.value)}
+                                            <textarea rows={5} onChange={(e) => setNewsText(e.target.value)}
                                                    className="form-control" placeholder="Write story here"/>
                                         </div>
                                         <p></p>
@@ -154,9 +160,7 @@ const PlusButton = () => {
                                         </button>
                                     </form>
                                 </div>
-
                             </div>
-
                         </div>
                     )}
                 </ReactCircleModal>

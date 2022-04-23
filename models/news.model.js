@@ -10,13 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         newsText: {
             type: DataTypes.STRING,
         },
-        newsAuthor: {
-            type: DataTypes.STRING,
-        },
         isPinned:{
-            type: DataTypes.BOOLEAN
-        },
-        isEmergency: {
             type: DataTypes.BOOLEAN
         },
         createdAt:{

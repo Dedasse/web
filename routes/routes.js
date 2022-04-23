@@ -9,7 +9,7 @@ const {loadVideos, loadPdf} = require("../controllers/download");
 const {rateMedia,} = require("../controllers/voting");
 const {deleteMedia} = require("../controllers/deleteMedia");
 const {createPoll, loadPollVote, dislikePoll, likePoll} = require("../controllers/pollvoting");
-const {loadNews} = require("../controllers/news");
+const {loadNews, createNews} = require("../controllers/news");
 
 
 // wildcard for debug, def localhost:300
@@ -31,7 +31,7 @@ router.post("/loadpollvote", loadPollVote)
 router.post("/upvote", authJwt.checkToken, rateMedia);
 router.post("/api/vote/dislike", dislikePoll)
 router.post("/api/vote/like", likePoll)
-
+router.post("/api/createnews", createNews)
 
 router.get('/checkuser', authJwt.checkToken);
 router.get("/api/loadvideos", loadVideos )

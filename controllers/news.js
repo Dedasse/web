@@ -6,7 +6,9 @@ const createNews = async (req, res) => {
 
     try {
         News.create({
-            question: req.body.question,
+            title: req.body.title,
+            newsText: req.body.newsText,
+            isPinned: req.body.isPinned,
         })
         return res.status(200).json({
             message: "created"
@@ -26,6 +28,6 @@ const loadNews = async (req,res) => {
 }
 
 module.exports = {
-
+    createNews,
     loadNews,
 }
