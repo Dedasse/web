@@ -170,7 +170,7 @@ const PlusButton = () => {
                     {(onClick) => (
                         <div style={{padding: '1em'}}>
                             <div className="auth-wrapper">
-                                <div className="auth-inner">
+                                <div className="auth-inner"  style={{backgroundColor: "white" }}>
                                     <form onSubmit={handleSubmit}>
                                         <h3>New notification</h3>
                                         <div className="form-group">

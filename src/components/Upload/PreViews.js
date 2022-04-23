@@ -57,7 +57,8 @@ console.log("HEll",files)
   ))
  
   return (
-    <div style={{display:"flex" ,flexDirection: "row" }}>{images}</div>
+      <div style={{display:"flex" ,flexDirection: "row", margin:"5px" }}>{images}</div>
+
   )
 }
 
