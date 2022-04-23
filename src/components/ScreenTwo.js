@@ -46,9 +46,9 @@ class ScreenTwo extends Component {
 
     render() {
         return (
-            <SizeMe>{({size}) =>
-                <div style={{ position: 'absolute', left: '50%', top: '50%',
-                    transform: 'translate(-50%, -50%)'}}>
+            <SizeMe monitorHeight>{({size}) =>
+                <div style={{ height: size.height,
+                    }}>
                     <VideoPlayer
                         width={size.width}
                         controls={false}
