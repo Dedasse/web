@@ -4,17 +4,30 @@ import axios from "axios";
 import 'react-leaf-polls/dist/index.css'
 import {ReactNotifications, Store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import {useCookies} from "react-cookie";
 
 
 export default function ScreenThree() {
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const [loading, setLoading] = useState(false)
+    const [cookies] = useCookies(['currentUser']);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     const [resDataArray, setResDataArray] = useState([
         {poll: [{id: 0, text: 'Yes', votes: 0}, {id: 0,text: 'N0', votes: 0}], question: ""}
     ])
 
     useEffect(() => {
         console.log("use-effect")
+        try {
+            if (cookies.currentUser.privilege == null) {
+                setIsLoggedIn(false)
+            } else {
+                setIsLoggedIn(true)
+            }
+        }catch (error){
+            setIsLoggedIn(false)
+        }
         fetchPolls();
 
     }, [])
@@ -43,7 +56,43 @@ export default function ScreenThree() {
         leftColor: '#00B87B',
         rightColor: '#FF2E00'
     }
+    function deletePoll(pollId){
+        console.log("deleting poll-id " + pollId)
+        axios.delete(serverUrl + 'api/vote/delete', {
+            data:{id: pollId}
 
+        }).then((response) => {
+            if (response.status === 200) {
+                console.log("Poll delete success")
+                Store.addNotification({
+                    message: "Poll deleted",
+                    type: "success",
+                    insert: "top",
+                    container: "bottom-center",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 2000,
+                        onScreen: true
+                    }
+                });
+            }
+        }, (error) => {
+            console.log("error " + error);
+            Store.addNotification({
+                message: error.toString(),
+                type: "danger",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 2000,
+                    onScreen: true
+                }
+            });
+        });
+    }
     function handleVote(item: Result) {
         if (item.text === "No"){
             console.log("voted no on id " + item.id)
@@ -52,7 +101,6 @@ export default function ScreenThree() {
             }).then((response) => {
                 if (response.status === 200) {
                     console.log("Dislike success")
-
                     Store.addNotification({
                         message: "Disliked",
                         type: "success",
@@ -130,6 +178,18 @@ export default function ScreenThree() {
 
     if (!loading) {
         const elementArray = resDataArray.map((element) =>
+            isLoggedIn? (
+                    <div>
+                        <LeafPoll
+                            type='multiple'
+                            question={element.question}
+                            results={element.poll}
+                            theme={pollTheme}
+                            onVote={handleVote}
+                        />
+                        <button onClick={()=> deletePoll(element.poll[0].id)} type="button" className="btn btn-danger">Delete poll</button>
+                    </div>
+                ):
             <div>
                 <LeafPoll
                     type='multiple'

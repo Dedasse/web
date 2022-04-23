@@ -1,7 +1,6 @@
 import {CircleMenu, CircleMenuItem, TooltipPlacement} from "react-circular-menu";
 import ReactCircleModal from "react-circle-modal";
 import {AiOutlinePlusCircle} from "react-icons/ai";
-import {MdOutlinePoll} from "react-icons/md";
 import React, {useState} from "react";
 import axios from "axios";
 import {Store} from "react-notifications-component";
@@ -11,6 +10,7 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 const PlusButton = () => {
     const serverUrl = process.env.REACT_APP_SERVER_URL;
+    const [question, setQuestion] = useState("");
     const [title, setTitle] = useState("");
     const [newsText, setNewsText] = useState("");
     const [isPinned, setIsPinned] = useState(false)
@@ -59,8 +59,51 @@ const PlusButton = () => {
                 }
             });
         });
+    }
+    function CreatePoll(event) {
+        console.log("axios")
+        event.preventDefault();
+        axios.post(serverUrl + "api/createpoll", {
+            question: question,
+        }, {
+            withCredentials: true,
+        }).then((response) => {
+            if (response.status === 200) {
+                Store.addNotification({
+                    message: "Poll created",
+                    type: "success",
+                    insert: "top",
+                    container: "bottom-center",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 2000,
+                        onScreen: true
+                    }
+                });
+                history.push("/");
+
+            }
+            console.log("incoming response..")
+            console.log(response);
+        }, (error) => {
+            console.log("error " + error)
+            Store.addNotification({
+                message: error.toString(),
+                type: "danger",
+                insert: "top",
+                container: "bottom-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        });
 
     }
+
 
     return (
         <div className="circular_menu" style={{
@@ -89,7 +132,7 @@ const PlusButton = () => {
                         <div style={{padding: '1em'}}>
                             <div className="auth-wrapper">
                                 <div className="auth-inner">
-                                    <form onSubmit={handleSubmit}>
+                                    <form onSubmit={CreatePoll}>
                                         <h3>New poll</h3>
                                         <div className="form-group">
                                             <label>Question</label>

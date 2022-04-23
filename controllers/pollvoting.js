@@ -38,7 +38,23 @@ const likePoll = async (req, res) => {
     })
 
 }
+const deletePoll = async (req, res) => {
+    console.log(req)
+    try {
+        PollRate.findOne({where: {id: req.body.id}})
+            .then(poll => {
+                poll.destroy();
+                return res.status(200).json({
+                    message: "Poll deleted"
+                })
 
+            })
+    }catch (error){
+        return res.status(409).json({
+            message: "Poll deleting error -- " + error
+        })
+    }
+}
 const loadPollVote = async (req, res) => {
     PollRate.findAll().then(files => {
         res.json(files)
@@ -52,4 +68,5 @@ module.exports = {
     dislikePoll,
     likePoll,
     loadPollVote,
+    deletePoll,
 }
