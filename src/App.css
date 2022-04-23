@@ -33,12 +33,11 @@
 
 .App button{
   border: none;
-  background: none;
 
 }
 .mouseButton button{
   margin: 15px;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: black;
   color: white;
   border: 3px solid white;
@@ -50,7 +49,5 @@
   border: 3px;
   padding: 8px;
 }
-
-
 
 
