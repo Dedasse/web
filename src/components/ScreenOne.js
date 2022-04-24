@@ -1,4 +1,4 @@
-import React, {Component,} from "react";
+import React, {Component, useEffect,} from "react";
 import {Document, Page, pdfjs} from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import axios from "axios";
@@ -16,6 +16,8 @@ export default class ScreenOne extends Component {
     }
     
     componentDidMount() {
+        window.scrollTo(0,100)
+
         const serverUrl = process.env.REACT_APP_SERVER_URL;
         // load pdf filename
         axios.get(serverUrl + 'api/loadpdf').then(res => {

@@ -9,19 +9,21 @@ import Tabs from "./components/Tabs";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import {ReactNotifications, Store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import {useEffect} from "react";
 
 
 
 function App() {
     let history = useHistory();
 
+
     window.handsfree.enablePlugins('browser')
 
     function startHandsfree() {
         window.handsfree.start()
         handsfree.plugin.palmPointers.enable()
-        //handsfree.plugin.pinchScroll.disable()
         handsfree.hideDebugger()
+
 
 
         handsfree.on('finger-pinched-1-3', async () => {
@@ -37,14 +39,15 @@ function App() {
         })
     }
 
+    useEffect(() => {
+        startHandsfree()
+    });
+
     return (
         <DataContextProvider>
         <Router>
                 <div className="App">
                     <ReactNotifications />
-                    <div className="mouseButton">
-                    <button onClick={startHandsfree}>Dönt click</button>
-                    </div>
                     <Switch>
                         <Route exact path='/' component={Tabs}/>
                         <Route path="/login" component={Login}/>

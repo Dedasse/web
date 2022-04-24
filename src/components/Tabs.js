@@ -9,6 +9,7 @@ import ScreenOne from "./ScreenOne";
 import ScreenTwo from "./ScreenTwo";
 import ScreenThree from "./pollvoting/ScreenThree";
 import StatusView from './StatusView/StatusView';
+import {useEffect} from "react";
 
 
 const blue = {
@@ -63,12 +64,14 @@ const Tab = styled(TabUnstyled)`
 `;
 
 const TabPanel = styled(TabPanelUnstyled)`
+  
   width: 100%;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem; 
 `;
 
 const TabsList = styled(TabsListUnstyled)`
+  margin-top: 100px;
   min-width: 320px;
   background-color: ${blue[500]};
   border-radius: 0px;
@@ -79,6 +82,9 @@ const TabsList = styled(TabsListUnstyled)`
 `;
 
 export default function UnstyledTabsCustomized() {
+    useEffect(() => {
+        window.scrollTo(0,100)
+    });
     return (
         <TabsUnstyled defaultValue={0}>
             <TabsList>

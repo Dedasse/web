@@ -8,6 +8,7 @@ import {useCookies} from "react-cookie";
 
 
 export default function ScreenThree() {
+
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const [loading, setLoading] = useState(false)
     const [cookies] = useCookies(['currentUser']);
@@ -19,6 +20,7 @@ export default function ScreenThree() {
 
     useEffect(() => {
         console.log("use-effect")
+        window.scrollTo(0,100)
         try {
             if (cookies.currentUser.privilege == null) {
                 setIsLoggedIn(false)

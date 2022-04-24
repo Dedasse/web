@@ -12,7 +12,11 @@ class ScreenTwo extends Component {
             isFullscreen: true,
         }
     }
-   
+    componentDidMount() {
+        window.scrollTo(0,100)
+
+    }
+
     async loadPDF() {
         const serverUrl = process.env.REACT_APP_SERVER_URL;
         // load video filename
