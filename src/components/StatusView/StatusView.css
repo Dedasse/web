@@ -1,0 +1,35 @@
+.alertBar {
+    margin: 16px;
+    align-items: center;
+    display: flex;
+    width: auto;
+    height: auto;
+    background-color: rgb(185, 32, 32);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.alertText {
+    color: white;
+}
+
+.alertHeader {
+    width: 15%;
+    text-align: center;
+}
+
+.alertInfoText {
+    text-align: center;
+    width: 85%;
+}
+
+.weatherAndTimeContainer {
+    margin: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007FFF;
+}
+
+.weatherAndTimeText {
+    color: white;
+}

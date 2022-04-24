@@ -1,0 +1,37 @@
+#element.style {
+    width: 100%;
+    height: auto;
+}
+
+canvas {
+    display:flex;
+    justifyContent: center;
+    alignItems: center;
+    width: 100%;
+    margin: 0;
+}
+
+.react-pdf__Page__canvas{
+    display:flex;
+    justifyContent: center;
+    alignItems: center;
+    width: 100px;
+    margin: 0;
+}
+
+.ScreenOne.react-pdf_Page{
+    display:flex;
+    justifyContent: center;
+    alignItems: center;
+    width: 100%;
+    margin: 0;
+
+}
+.ScreenOne.canvas.react-pdf_Page_canvas{
+    display:flex;
+    justifyContent: center;
+    alignItems: center;
+    width: 100%;
+    margin: 0;
+
+}
