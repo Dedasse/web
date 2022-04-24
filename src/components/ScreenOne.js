@@ -60,10 +60,12 @@ export default class ScreenOne extends Component {
         }, this.state.showTime)
     }
 
+
     componentWillUnmount() {
         console.log("sad")
         clearInterval(interval)
     }
+
     onDocumentLoadSuccess = ({numPages}) => {
         
         this.setState({numPages});
@@ -81,6 +83,7 @@ export default class ScreenOne extends Component {
                     file={"Files/" + this.state.currentFile}
                     onLoadSuccess={this.onDocumentLoadSuccess}>
                     <Page
+                        renderTextLayer = {false}
                         width={size.width}
                         pageNumber={pageNumber}/>
                 </Document>
