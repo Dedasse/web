@@ -20,7 +20,7 @@ function App() {
     function startHandsfree() {
         window.handsfree.start()
         handsfree.plugin.palmPointers.enable()
-        handsfree.plugin.pinchScroll.disable()
+        //handsfree.plugin.pinchScroll.disable()
         handsfree.hideDebugger()
 
 

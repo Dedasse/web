@@ -188,7 +188,7 @@ export default function ScreenThree() {
                             theme={pollTheme}
                             onVote={handleVote}
                         />
-                        <button onClick={()=> deletePoll(element.poll[0].id)} type="button" className="btn btn-danger">Delete poll</button>
+                        <button  onClick={()=> deletePoll(element.poll[0].id)} type="button" className="btn btn-danger">Delete poll</button>
                     </div>
                 ):
             <div>
@@ -203,7 +203,8 @@ export default function ScreenThree() {
         )
         return (
             <div style={{
-                margin: '300px auto',
+                paddingBottom: '200px',
+                margin: 'auto',
                 width: '500px'
             }}>
                 {elementArray}
