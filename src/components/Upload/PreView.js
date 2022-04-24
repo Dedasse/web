@@ -41,7 +41,7 @@ const PreView = ({file}) => {
         </div> : file.type === "video/mp4" ?
           <div>
             <p>
-              name: {file.name} type: {file.type}  uploadedBy: {file.uploadedBy} filename:{file.filename}  expireDate: <input type="datetime" value={date} onChange={(e) => setTime(e.target.value)} /> </p>
+              name: {file.name} type: {file.type}  uploadedBy: {file.uploadedBy} filename:{file.filename}  expireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /> </p>
               <button onClick={() => {
             const data = {file}
             data.file.showTime = time

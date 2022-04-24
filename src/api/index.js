@@ -1,16 +1,33 @@
 import axios from "axios";
-
+import {compareAsc, format} from 'date-fns';
+const withCredentials = true;
 export const getMedia = async (media,setMedia) => {
   const serverUrl = process.env.REACT_APP_SERVER_URL;
+  
+
   try {
     const response = await axios.get(serverUrl + "api/loadpdf");
     response.data.map((data) => {
-      setMedia(prevState => [...prevState, data])
+      if (format(new Date(), 'yyyy-MM-dd') > data.expireTime) {
+        console.log("Deleted", data.name)
+        const dataF = {mediaId: data.id, name: data.filename}
+        deleteFile(withCredentials, dataF)
+      } else {
+        setMedia(prevState => [...prevState, data])
+      }
     })
     
     const response1 = await axios.get(serverUrl + "api/loadvideos");
     response1.data.map((data) => {
-      setMedia(prevState => [...prevState, data])
+      
+      if (format(new  Date(),'yyyy-MM-dd') > data.expireTime) {
+        console.log("Deleted", data.name)
+        const dataF = {mediaId: data.id, name: data.filename}
+        deleteFile(withCredentials, dataF)
+      } else {
+        setMedia(prevState => [...prevState, data])
+      }
+      
     })
   } catch (err) {
     console.log(err);
