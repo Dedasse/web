@@ -21,9 +21,11 @@ function App() {
         window.handsfree.start()
         handsfree.plugin.palmPointers.enable()
         handsfree.plugin.pinchScroll.disable()
+        handsfree.hideDebugger()
 
-        handsfree.on('finger-pinched-1-0', async () => {
-            if (handsfree.data.hands.pinchState[1][0] === "released") {
+
+        handsfree.on('finger-pinched-1-3', async () => {
+            if (handsfree.data.hands.pinchState[1][3] === "released") {
                 console.log("state released")
                 const hands = await handsfree.data.hands.pointer
                 console.log(handsfree.data.hands.pointer)
@@ -38,8 +40,6 @@ function App() {
     return (
         <DataContextProvider>
         <Router>
-           
-
                 <div className="App">
                     <ReactNotifications />
                     <div className="mouseButton">
@@ -52,7 +52,7 @@ function App() {
                         <PrivateRoute path="/console" component={Console}/>
                     </Switch>
                 </div>
-            
+
             </Router>
             </DataContextProvider>
     );
