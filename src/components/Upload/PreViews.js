@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import { Document, Page, pdfjs   } from "react-pdf"
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import { useDataContext } from '../../context/DataContext';
-
+import './Upload.css';
+import { IconButton, ThemeProvider } from '@material-ui/core';
 
 const PreViews = () => {
   const {files, setFiles} = useDataContext();
@@ -32,8 +33,10 @@ console.log("HEll",files)
         
               </div>
             </Document>
-            <button style={{position: "absolute", top: "12px", right: "12px"}} onClick={()=>{dropFromArrray(file.name)}}>2</button>
-          </div>   
+            
+            <IconButton aria-label="close"  style={{position: "absolute", top: "12px", right: "12px", }} 
+            onClick={()=>{dropFromArrray(file.name)}}>close</IconButton>
+          </div>     
         )
       
         </> : file.type === "video/mp4" ?

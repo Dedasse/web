@@ -26,42 +26,53 @@ const PreView = ({file}) => {
     <>
       
       {file.type === "document/pdf" || file.type === "application/pdf" ?
-        <div style={{width: "100%", height: "100px"}}>
-          <p>showTime: <input type="number" value={time / 1000} onChange={(e) => setTime(e.target.value * 1000)} />.s  name: {file.name} type: {file.type}  uploadedBy: {file.uploadedBy} filename:{file.filename}  expireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /></p>
-          <button onClick={() => {
-            const data = {file}
-            data.file.showTime = time
-            data.file.expireTime = date
-            updateFile(data)
-            }}>Update</button>
-          <button onClick={() => {
-            const data = {mediaId: file.id, name: file.filename}
-            deletee(data)
-            }}>Delete</button>
-        </div> : file.type === "video/mp4" ?
-          <div>
-            <p>
-              name: {file.name} type: {file.type}  uploadedBy: {file.uploadedBy} filename:{file.filename}  expireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /> </p>
-              <button onClick={() => {
-            const data = {file}
-            data.file.showTime = time
-            data.file.expireTime = date
-            updateFile(data)
-            }}>Update</button>
-            <button onClick={() => {
-              const data = {mediaId: file.id, name: file.filename}
-              deletee(data)
-            }}>Delete</button>
-          </div> : console.log("wrong media")
+
+
+<div className="col-sm-12" style={{flexGrow: 1, justifyItems:"baseline", justifyContent:"row", }}>
+
+<div className="card shadow-sm" style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+<div className="card-header">File name: {file.name}</div>
+<div className="card-body">
+<p>type: {file.type}  uploadedBy: {file.uploadedBy} </p>filename: {file.filename} <p> showTime: <input type="number" value={time / 1000} onChange={(e) => setTime(e.target.value * 1000)} /><p></p>.sexpireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /></p>
+</div>
+<div className="d-flex flex-column align-items-center">
+<button className="btn btn-outline-primary" style={{width: "18rem", margin:"5px", }} onClick={() => {
+const data = {file}
+data.file.showTime = time
+data.file.expireTime = date
+updateFile(data)
+}}>Update</button>
+
+<button className="btn btn-outline-dark" style={{width: "18rem", margin:"5px"}} onClick={() => {
+const data = {mediaId: file.id, name: file.filename}
+deletee(data)
+}}>Delete</button>
+</div></div></div>: file.type === "video/mp4" ?
+<div className="card" style={{width:"400px"}}>
+<div className="card-header">
+  File name: {file.name} </div> <p>type: {file.type}
+  <p> uploadedBy: {file.uploadedBy} </p>filename:{file.filename} <p></p> expireDate: <input type="datetime" value={date} onChange={(e) => setTime(e.target.value)} /> </p>
+<div className="d-flex align-items-center">
+<button className="btn btn-outline-primary" style={{width: "18rem", margin:"5px",}} onClick={() => {
+const data = {file}
+data.file.showTime = time
+data.file.expireTime = date
+updateFile(data)
+}}>Update</button>
+<button className="btn btn-outline-dark" style={{width: "18rem", margin:"5px",}} onClick={() => {
+  const data = {mediaId: file.id, name: file.filename}
+  deletee(data)
+}}>Delete</button>
+</div></div>: console.log("wrong media")
 }
-      
-            </>
-  )
- 
-  return (
-    
-    <div style={{display: "flex" , flexDirection: "column"}}>{image}</div>
-  )
+
+</>
+)
+
+return (
+
+<div >{image}</div>
+)
 }
 
 export default PreView;

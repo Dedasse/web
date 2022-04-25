@@ -12,25 +12,30 @@ const Upload = () => {
 
     return (
         <div className="main-container">
-            <div className="upper-portion">
-                <div className="buttons">
-                    <Buttons  />
+             <header>Admin Panel</header>
+             <div className="float-left">
+             <PlusButton/>
+             <div className="dand">
+                    <DaDarea/>
                 </div>
+                
                 <div className="savePublish">
                     <Publish style={{width: "200px", height: "200px", border: "2px solid red"}}
                             
                     />
+                  <div className="buttons">
+                    <Buttons  />
+                </div>  
                 </div>
+                
             </div>
             <div className="lower-portion">
                 <div className="inserver">
                     <Inserver />
                 </div>
-                <div className="dand">
-                    <DaDarea/>
-                </div>
+                
             </div>
-            <PlusButton/>
+           
         </div>
 
     )

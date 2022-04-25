@@ -19,7 +19,9 @@ const DaDarea = () => {
     <div>
       <div
         className="dnd-container"  {...getRootProps()}>
+          
           <input {...getInputProps()} />
+
         {isDragActive ? <p>Drag Active</p> : <p>Drag & Drop to Upload File</p>}
       </div>
     </div>

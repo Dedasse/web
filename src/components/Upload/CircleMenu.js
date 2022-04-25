@@ -108,7 +108,7 @@ const PlusButton = () => {
     return (
         <div className="circular_menu" style={{
             width: "100%",
-            marginLeft: "300px"
+            
         }}>
             <CircleMenu
                 startAngle={180}
@@ -118,7 +118,7 @@ const PlusButton = () => {
                 rotationAngleInclusive={false}>
                 <CircleMenuItem
                     tooltip="New poll"
-                    tooltipPlacement={TooltipPlacement.Right}
+                    tooltipPlacement={TooltipPlacement.Top}
                 > <ReactCircleModal
                     backgroundColor="#E0E0E0"
                     toogleComponent={onClick => (
@@ -157,7 +157,7 @@ const PlusButton = () => {
                 </CircleMenuItem>
                 <CircleMenuItem
                     tooltip="New notification"
-                    tooltipPlacement={TooltipPlacement.Right}
+                    tooltipPlacement={TooltipPlacement.Top}
                 > <ReactCircleModal
                     backgroundColor="#E0E0E0"
                     toogleComponent={onClick => (
