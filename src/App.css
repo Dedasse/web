@@ -42,8 +42,15 @@
 }
 
 .mouseButton button:hover {
-  background-image: linear-gradient(to right, #7579ff, #b224ef 100%);
+  background-color: linear-gradient(to right, #7579ff, #b224ef 100%);
   border: 3px;
   padding: 8px;
 }
 
+.css-1u09fmp {
+  background-color: azure;
+}
+
+article._1xGEd {
+  margin-top: 10px;
+}

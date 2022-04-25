@@ -48,9 +48,7 @@ function App() {
         <Router>
                 <div className="App">
                     <ReactNotifications />
-                    <div className="mouseButton">
-                <button onClick={startHandsfree}>Dönt click</button>
-                </div>
+                    
                     <Switch>
                         <Route exact path='/' component={Tabs}/>
                         <Route path="/login" component={Login}/>

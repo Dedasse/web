@@ -207,7 +207,9 @@ export default function ScreenThree() {
             <div style={{
                 paddingBottom: '200px',
                 margin: 'auto',
-                width: '500px'
+                width: '500px',
+               
+                marginTop: '10px'
             }}>
                 {elementArray}
             </div>

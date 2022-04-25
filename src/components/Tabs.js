@@ -29,7 +29,7 @@ const Tab = styled(TabUnstyled)`
   
   color: white;
   cursor: pointer;
-  font-size: 0.875rem;
+  
   font-weight: bold;
   background-color: transparent;
   width: 100%;
@@ -42,7 +42,7 @@ const Tab = styled(TabUnstyled)`
   min-height: 50px;
 
   &:hover {
-    background: linear-gradient(to left,#7579ff,#b224ef);
+    background: linear-gradient(to left,#7579ff, blue);
   }
 
   &:focus {
@@ -67,13 +67,13 @@ const TabPanel = styled(TabPanelUnstyled)`
   
   width: 100%;
   font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.875rem; 
+  
 `;
 
 const TabsList = styled(TabsListUnstyled)`
   margin-top: 100px;
   min-width: 320px;
-  background-color: ${blue[500]};
+  background-color: black;
   border-radius: 0px;
   margin-bottom: 0px;
   display: flex;
