@@ -33,3 +33,7 @@
 .weatherAndTimeText {
     color: white;
 }
+
+.articleRow {
+    display: flex;
+}
