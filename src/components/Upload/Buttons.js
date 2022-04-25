@@ -18,8 +18,8 @@ const Buttons = () => {
 
 
   return (
-      <div className="btn btn-outline-primary" style={{width: "8rem", margin:"8px",}}>
-        <button onClick={()=>{save()}} >save</button>
+      <div className="btn">
+        <button className="btn btn-outline-primary" style={{width: "8rem", margin:"8px",}} onClick={()=>{save()}} >save</button>
       </div>
   )
 }

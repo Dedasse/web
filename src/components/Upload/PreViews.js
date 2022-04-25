@@ -34,7 +34,7 @@ console.log("HEll",files)
               </div>
             </Document>
             
-            <IconButton aria-label="close"  style={{position: "absolute", top: "12px", right: "12px", }} 
+             <IconButton aria-label="close"  style={{position: "absolute", top: "12px", right: "12px", }} 
             onClick={()=>{dropFromArrray(file.name)}}>close</IconButton>
           </div>     
         )

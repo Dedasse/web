@@ -15,7 +15,6 @@
   --border: #d9d9d9;
 }
 
-
 header {
   color:azure;
   font-size: large;
@@ -35,6 +34,7 @@ header {
   padding: 5px;
   min-width: 320px;
   margin: 4px;
+
 }
 
 .dnd-container{
@@ -54,9 +54,8 @@ header {
 
 .dnd-container p{
   margin-top: 10px;
+
 }
-
-
 
 .svg-inline--fa {
   font-size: 100px;
@@ -88,10 +87,13 @@ header{
 }
 
 h6{
-  margin-top: 6px;
+  margin: 6px;
   display: flex;
   justify-content: center;
   font-size: large;
+  text-align: center;
+  display: flex;
+ 
 }
 
 span{
@@ -108,7 +110,7 @@ span{
   background-color: ghostwhite;
   border-radius: 15px ;
   text-align: center;
-  margin: 15px;
+  margin: 4px;
 
 }
 
@@ -199,6 +201,12 @@ span{
   border-radius: 15px;
   margin-right: 4px;
   min-width: 600px;
+ background-color: azure;
+}
+
+.iZWQdS {
+
+  z-index: 101;
 }
 
 .eDKpst{
