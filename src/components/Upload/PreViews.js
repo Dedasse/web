@@ -26,7 +26,7 @@ console.log("HEll",files)
       
       {file.type === "application/pdf" ?
         <>
-          <div style={{margin: "2px", width: 160,height: 200}}>  
+          <div style={{margin: "2px", width: 220,height: 220}}>  
             <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
               <div >
                 <Page height={220} pageNumber={pageNumber} />

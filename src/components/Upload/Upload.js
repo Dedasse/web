@@ -5,7 +5,7 @@ import Publish from './Publish';
 import Inserver from './Inserver';
 import DaDarea from './DaDarea';
 import PlusButton from "./CircleMenu";
-import QRCode from 'react-qr-code';
+import QRCode from './QRCode';
 
 
 const Upload = () => {
@@ -36,17 +36,10 @@ const Upload = () => {
                 </div>
                 
             </div>
-           <div className="container mx-auto w-2/4" style={{display: "flex", justifyContent:"center", flexDirection:"column", }}>
-               <h1 className="py-4">QR-code</h1>
-               <input style={{marginBottom:"20px"}}
-               onChange={e => setInputValue(e.target.value)}
-               type="text" 
-               placeholder="Enter link or text for QR-Code generation"
-               className="border border-gray-388 w-full h-8 p-4 font-light text-sm focus: outline-none"/>
+           <div >
 
                <QRCode
-                className="mx-auto mt-20"
-                value={inputValue}
+               
                />
            </div>
         </div>

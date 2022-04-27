@@ -201,7 +201,7 @@ span{
   border-radius: 15px;
   margin-right: 4px;
   min-width: 600px;
- background-color: azure;
+  background-color: azure;
 }
 
 .iZWQdS {
@@ -217,6 +217,21 @@ span{
   margin: 60px;
 }
 
+.QRCode{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+.py-4{
+  margin: 5px;
+}
+
+canvas#qrCodeEl{
+  display: flex;
+  justify-content: center;
+}
 
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
@@ -266,6 +281,7 @@ span{
     justify-content: center;
     width: 100%;
   }
+
   .buttons{
     display: block;
     justify-content: center;
