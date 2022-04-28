@@ -36,11 +36,8 @@ const Upload = () => {
                 </div>
                 
             </div>
-           <div >
-
-               <QRCode
-               
-               />
+           <div className='QRCodeAdmin' >
+               <QRCode />
            </div>
         </div>
 
