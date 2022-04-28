@@ -110,7 +110,7 @@ const PlusButton = () => {
             width: "100%",
             
         }}>
-           
+           <h3 className="h-circle">Create polls and notifications</h3>
             <CircleMenu
                 startAngle={180}
                 rotationAngle={360}
