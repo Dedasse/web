@@ -215,6 +215,7 @@ span{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 24px;
  
 }
 
@@ -246,8 +247,6 @@ span{
   flex-wrap: wrap;
   flex: 2 1;
 }
-
-
 
 .py-4{
   margin: 10px;

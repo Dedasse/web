@@ -4,7 +4,7 @@
     display: flex;
     width: auto;
     height: auto;
-    background-color: rgb(185, 32, 32);
+   
     padding: 10px 20px;
     border-radius: 5px;
 }
@@ -27,13 +27,21 @@
     margin: 16px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #007FFF;
+    background-color: lightblue;
+    
+    
 }
 
-.weatherAndTimeText {
-    color: white;
+
+
+.newArticle{
+    margin: 16px;
+    padding: 10px;
+    border-radius: 5px;
+   
 }
 
-.articleRow {
-    display: flex;
+.articleTitle{
+    color: dodgerblue;
 }
+

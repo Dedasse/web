@@ -9,7 +9,7 @@ import QRCode from './QRCode';
 
 
 const Upload = () => {
-    const [inputValue, setInputValue] = React.useState('')
+  
 
     return (
         <div className="main-container">
