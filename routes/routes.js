@@ -9,7 +9,7 @@ const {loadVideos, loadPdf} = require("../controllers/download");
 const {rateMedia,} = require("../controllers/voting");
 const {deleteMedia} = require("../controllers/deleteMedia");
 const {createPoll, loadPollVote, dislikePoll, likePoll, deletePoll} = require("../controllers/pollvoting");
-const {loadNews, createNews} = require("../controllers/news");
+const {loadNews, createNews, deleteNews} = require("../controllers/news");
 
 
 router.all('*', function(req, res, next) {
@@ -47,6 +47,7 @@ router.get("/api/loadpdf", loadPdf)
 router.get("/api/loadnews", loadNews)
 router.delete("/api/delete", deleteMedia)
 router.delete("/api/vote/delete", deletePoll)
+router.delete("/api/news/delete", deleteNews)
 
 
 

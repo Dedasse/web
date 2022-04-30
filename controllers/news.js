@@ -27,8 +27,26 @@ const loadNews = async (req, res) => {
     })
 
 }
+const deleteNews = async (req, res) => {
+    console.log(req)
+    try {
+        News.findOne({where: {id: req.body.id}})
+            .then(poll => {
+                poll.destroy();
+                return res.status(200).json({
+                    message: "News deleted"
+                })
+
+            })
+    }catch (error){
+        return res.status(409).json({
+            message: "News deleting error -- " + error
+        })
+    }
+}
 
 module.exports = {
     createNews,
     loadNews,
+    deleteNews
 }
