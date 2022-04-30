@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {useCookies} from "react-cookie";
 import {Store} from "react-notifications-component";
+import 'react-notifications-component/dist/theme.css'
 
 const StatusView = () => {
     const [loading, setLoading] = useState(false)
@@ -32,6 +33,7 @@ const StatusView = () => {
     ])
 
     useEffect(() => {
+
         console.log("use-effect")
         window.scrollTo(0, 100)
         try {
