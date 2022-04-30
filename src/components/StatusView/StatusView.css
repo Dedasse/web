@@ -28,16 +28,15 @@
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    background-color: lightblue;
-    animation: mymove 15s infinite;
-    animation-delay: 15s; 
-     width: 380px;
-     height: 380px;
+    animation: mymove 20s infinite;
+    animation-delay: none; 
+    width: 380px;
+    height: 340px;
 }
 
 @keyframes mymove {
-    from {background-color: dodgerblue;}
-    to {background-color:black; color: whitesmoke;}
+    from {color: black;}
+    to { color: white; }
     from {left: 0px;}
     to {left: 100%;}
        

@@ -132,7 +132,7 @@ const PlusButton = () => {
                     {(onClick) => (
                         <div style={{padding: '1em'}}>
                             <div className="auth-wrapper">
-                                <div className="auth-inner"  style={{backgroundColor: "white" }}>
+                                <div className="auth-inner">
                                     <form onSubmit={CreatePoll}>
                                         <h3>New poll</h3>
                                         <div className="form-group">
@@ -171,7 +171,7 @@ const PlusButton = () => {
                     {(onClick) => (
                         <div style={{padding: '1em'}}>
                             <div className="auth-wrapper">
-                                <div className="auth-inner"  style={{backgroundColor: "white" }}>
+                                <div className="auth-inner">
                                     <form onSubmit={handleSubmit}>
                                         <h3>New notification</h3>
                                         <div className="form-group">

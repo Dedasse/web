@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import {CookiesProvider} from "react-cookie";
 import Handsfree from "./handsfree";
 import "handsfree/build/lib/assets/handsfree.css";
+import Layout from './components/Layout';
 
 window.handsfree = new Handsfree({
     showDebug: true,
@@ -21,11 +22,15 @@ window.handsfree = new Handsfree({
 
 
 ReactDOM.render(
+    
     <CookiesProvider>
         <BrowserRouter>
+        <Layout>
             <App />
+          </Layout>,  
         </BrowserRouter>,
     </CookiesProvider>,
+    
     document.getElementById("root")
 );
 

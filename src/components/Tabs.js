@@ -10,6 +10,8 @@ import ScreenTwo from "./ScreenTwo";
 import ScreenThree from "./pollvoting/ScreenThree";
 import StatusView from './StatusView/StatusView';
 import {useEffect} from "react";
+import darkstyles from '../darkstyles';
+import { Checkbox } from '@material-ui/core';
 
 
 const blue = {
@@ -92,7 +94,22 @@ export default function UnstyledTabsCustomized() {
                 <Tab>Video</Tab>
                 <Tab>Poll</Tab>
                 <Tab>Alert & News</Tab>
+                <Checkbox
+                name="theme"
+                onChange={() => {
+                  if(window.localStorage.getItem('theme') === 'dark'){
+                    window.localStorage.setItem('theme', 'light')
+                  } else {
+                    window.localStorage.setItem('theme', 'dark')
+                  }
+                  window.location.reload()
 
+                }}
+                checked={window.localStorage.getItem('theme') === 'dark'}
+                text='darkmode'>
+
+                </Checkbox>
+               
             </TabsList>
             <TabPanel value={0}> <ScreenOne/></TabPanel>
             <TabPanel value={1}><ScreenTwo/></TabPanel>

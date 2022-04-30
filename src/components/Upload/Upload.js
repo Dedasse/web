@@ -6,14 +6,39 @@ import Inserver from './Inserver';
 import DaDarea from './DaDarea';
 import PlusButton from "./CircleMenu";
 import QRCode from './QRCode';
-
+import { Checkbox } from '@material-ui/core';
+import { fa2 } from '@fortawesome/free-solid-svg-icons';
 
 const Upload = () => {
   
 
     return (
         <div className="main-container">
-             <header>Admin Panel</header>
+             
+             <header>Admin Panel
+                <div className='checkbox'>
+                    <Checkbox 
+                    label="Switch"
+                name="theme"
+                onChange={() => {
+                  if(window.localStorage.getItem('theme') === 'dark'){
+                    window.localStorage.setItem('theme', 'light')
+                  } else {
+                    window.localStorage.setItem('theme', 'dark')
+                  }
+                  window.location.reload()
+
+                }}
+                checked={window.localStorage.getItem('theme') === 'dark'}
+                text={'darkmode'}
+                >
+                    
+                </Checkbox>  
+                </div>
+
+           
+             </header>
+            
              <div className="float-left">
              <PlusButton/>
              <div className="dand">
@@ -39,6 +64,7 @@ const Upload = () => {
            <div className='QRCodeAdmin' >
                <QRCode />
            </div>
+          
         </div>
 
     )
