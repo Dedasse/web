@@ -56,7 +56,7 @@ const deletePoll = async (req, res) => {
     }
 }
 const loadPollVote = async (req, res) => {
-    PollRate.findAll().then(files => {
+    PollRate.findAll({ limit: 10, order: [['updatedAt', 'DESC']]}).then(files => {
         res.json(files)
     })
 

@@ -15,19 +15,19 @@ export default function ScreenThree() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const [resDataArray, setResDataArray] = useState([
-        {poll: [{id: 0, text: 'Yes', votes: 0}, {id: 0,text: 'N0', votes: 0}], question: ""}
+        {poll: [{id: 0, text: 'Yes', votes: 0}, {id: 0, text: 'N0', votes: 0}], question: ""}
     ])
 
     useEffect(() => {
         console.log("use-effect")
-        window.scrollTo(0,100)
+        window.scrollTo(0, 100)
         try {
             if (cookies.currentUser.privilege == null) {
                 setIsLoggedIn(false)
             } else {
                 setIsLoggedIn(true)
             }
-        }catch (error){
+        } catch (error) {
             setIsLoggedIn(false)
         }
         fetchPolls();
@@ -40,7 +40,11 @@ export default function ScreenThree() {
         axios.post(serverUrl + 'loadpollvote').then(res => {
             res.data.forEach((element) => {
                 newResArray.push({
-                    poll: [{id: element.id,text: 'Yes', votes: element.likes}, {id: element.id, text: 'No', votes: element.dislikes}],
+                    poll: [{id: element.id, text: 'Yes', votes: element.likes}, {
+                        id: element.id,
+                        text: 'No',
+                        votes: element.dislikes
+                    }],
                     question: element.question
                 })
 
@@ -59,63 +63,30 @@ export default function ScreenThree() {
         rightColor: '#d000ff'
     }
 
-    function deletePoll(pollId){
+    function deletePoll(pollId) {
         console.log("deleting poll-id " + pollId)
         axios.delete(serverUrl + 'api/vote/delete', {
-            data:{id: pollId}
+            data: {id: pollId}
 
         }).then((response) => {
-            if (response.status === 200) {
-                console.log("Poll delete success")
-                Store.addNotification({
-                    message: "Poll deleted",
-                    type: "success",
-                    insert: "top",
-                    container: "bottom-center",
-                    animationIn: ["animate__animated", "animate__fadeIn"],
-                    animationOut: ["animate__animated", "animate__fadeOut"],
-                    dismiss: {
-                        duration: 2000,
-                        onScreen: true
-                    }
-                });
-            }
-        }, (error) => {
-            console.log("error " + error);
-            Store.addNotification({
-                message: error.toString(),
-                type: "danger",
-                insert: "top",
-                container: "bottom-center",
-                animationIn: ["animate__animated", "animate__fadeIn"],
-                animationOut: ["animate__animated", "animate__fadeOut"],
-                dismiss: {
-                    duration: 2000,
-                    onScreen: true
+                if (response.status === 200) {
+                    console.log("Poll delete success")
+                    fetchPolls()
                 }
-            });
-        });
+            }, (error) => {
+                console.log("error " + error);
+            }
+        )
     }
+
     function handleVote(item: Result) {
-        if (item.text === "No"){
+        if (item.text === "No") {
             console.log("voted no on id " + item.id)
             axios.post(serverUrl + 'api/vote/dislike', {
                 id: item.id
             }).then((response) => {
                 if (response.status === 200) {
-                    console.log("Dislike success")
-                    Store.addNotification({
-                        message: "Disliked",
-                        type: "success",
-                        insert: "top",
-                        container: "bottom-center",
-                        animationIn: ["animate__animated", "animate__fadeIn"],
-                        animationOut: ["animate__animated", "animate__fadeOut"],
-                        dismiss: {
-                            duration: 2000,
-                            onScreen: true
-                        }
-                    });
+                    console.log("Dislike success");
                 }
             }, (error) => {
                 console.log("error " + error)
@@ -127,30 +98,18 @@ export default function ScreenThree() {
                     animationIn: ["animate__animated", "animate__fadeIn"],
                     animationOut: ["animate__animated", "animate__fadeOut"],
                     dismiss: {
-                        duration: 2000,
+                        duration: 1500,
                         onScreen: true
                     }
                 });
             });
 
-        } else if (item.text === "Yes"){
-            axios.post(serverUrl +'api/vote/like', {
+        } else if (item.text === "Yes") {
+            axios.post(serverUrl + 'api/vote/like', {
                 id: item.id
             }).then((response) => {
                 if (response.status === 200) {
                     console.log("Like success")
-                    Store.addNotification({
-                        message: "Liked",
-                        type: "success",
-                        insert: "top",
-                        container: "bottom-center",
-                        animationIn: ["animate__animated", "animate__fadeIn"],
-                        animationOut: ["animate__animated", "animate__fadeOut"],
-                        dismiss: {
-                            duration: 2000,
-                            onScreen: true
-                        }
-                    });
                 }
 
             }, (error) => {
@@ -181,7 +140,7 @@ export default function ScreenThree() {
 
     if (!loading) {
         const elementArray = resDataArray.map((element) =>
-            isLoggedIn? (
+            isLoggedIn ? (
                     <div>
                         <LeafPoll
                             type='multiple'
@@ -190,25 +149,27 @@ export default function ScreenThree() {
                             theme={pollTheme}
                             onVote={handleVote}
                         />
-                        <button  onClick={()=> deletePoll(element.poll[0].id)} type="button" className="btn btn-danger">Delete poll</button>
+                        <button onClick={() => deletePoll(element.poll[0].id)} type="button"
+                                className="btn btn-danger">Delete poll
+                        </button>
                     </div>
-                ):
-            <div>
-                <LeafPoll
-                    type='multiple'
-                    question={element.question}
-                    results={element.poll}
-                    theme={pollTheme}
-                    onVote={handleVote}
-                />
-            </div>
+                ) :
+                <div>
+                    <LeafPoll
+                        type='multiple'
+                        question={element.question}
+                        results={element.poll}
+                        theme={pollTheme}
+                        onVote={handleVote}
+                    />
+                </div>
         )
         return (
             <div style={{
                 paddingBottom: '200px',
                 margin: 'auto',
                 width: '500px',
-               
+
                 marginTop: '10px'
             }}>
                 {elementArray}
