@@ -12,10 +12,18 @@ const {createPoll, loadPollVote, dislikePoll, likePoll, deletePoll} = require(".
 const {loadNews, createNews} = require("../controllers/news");
 
 
-// wildcard for debug, def localhost:300
 router.all('*', function(req, res, next) {
+    const origin = req.headers.origin;
+    const allowedOrigins = [
+        'http://localhost:3000',
+        'https://192.168.50.189',
+        'https://192.168.50.189:3000',
+        'https://192.168.50.189:3003',
+        'https://192.168.50.189:3006'];
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
 
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Credentials', "true")
     res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");    next();

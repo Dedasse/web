@@ -1,16 +1,24 @@
 'use strict';
-const express = require('express');
 const routes = require("./routes/routes");
+const express = require("express"),
+    server = express(),
+    fs = require("fs"),
+    path = require("path"),
+    https = require("https"),
+    http = require("http")
 const cookieParser = require("cookie-parser");
-const server = express();
+
+
 const port = process.env.SERVER_PORT
-// const cors = require('cors')
-// remove later if no issues
 server.use(express.json());
 server.use(routes);
 server.use(cookieParser());
 
+const options = {
+    key: fs.readFileSync("private.key"),
+    cert: fs.readFileSync("certificate.crt"),
+};
 
-server.listen(port, () => console.log(`SERVER listening on port ${port}!`));
-
-
+http.createServer(options, server )
+    .listen(port, function () {
+        console.log(`SERVER listening on port ${port}!`)});

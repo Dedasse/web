@@ -19,9 +19,10 @@ const createNews = async (req, res) => {
 
 }
 
-const loadNews = async (req,res) => {
+const loadNews = async (req, res) => {
     console.log("loading news")
-    News.findAll().then(files => {
+    News.findAll({ limit: 10, order: [['updatedAt', 'DESC']]}).then(files => {
+         files.sort((a,b) => b.isPinned - a.isPinned)
         res.json(files)
     })
 
