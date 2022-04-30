@@ -47,28 +47,29 @@ const WeatherAndTime = () => {
 
     return (
         <div className='weatherAndTimeContainer'>
-            <h1 className='weatherAndTimeText'>
+            <h2 className='date'>
                 {dayOfWeek[date.getDay()] + ' ' + date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear()} {date.getHours() + ':' + date.getMinutes()}
-            </h1>
+            </h2>
 
             <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}></img>
 
-            <h1 className='weatherAndTimeText'>
+            <h2 className='weatherParam1'>
                 {weather.weather[0].main}
-            </h1>
+            </h2>
             
-            <h2 className='weatherAndTimeText'>
+            <h3 className='weatherDescription'>
                 {weather.weather[0].description}
-            </h2>
+            </h3>
 
-            <h2 className='weatherAndTimeText'>
+            <h3 className='weatherTemp'>
                 Temp: {kelvinToRoundedCelsius(weather.main.temp) /* Get Celsius into Kelvin */} °C
-            </h2>
+            </h3>
 
-            <h2 className='weatherAndTimeText'>
+            <h3 className='weatherTemp2'>
                 Feels Like: {kelvinToRoundedCelsius(weather.main.feels_like) /* Get Celsius into Kelvin */} °C
-            </h2>
+            </h3>
         </div>
+        
     )
 }
 
