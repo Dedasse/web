@@ -1,13 +1,16 @@
 import './StatusView.css';
-import AlertBar from './AlertBar'
 import WeatherAndTime from './Weather/WeatherAndTime'
 import NewsArticle from './NewsArticles/NewsArticle'
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import {useCookies} from "react-cookie";
+import {Store} from "react-notifications-component";
 
 const StatusView = () => {
     const [loading, setLoading] = useState(false)
     const serverUrl = process.env.REACT_APP_SERVER_URL;
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [cookies] = useCookies(['currentUser']);
 
     /**Current defined alerts*/
     const [articles, setArticles] = useState([
@@ -30,7 +33,16 @@ const StatusView = () => {
 
     useEffect(() => {
         console.log("use-effect")
-        window.scrollTo(0,100)
+        window.scrollTo(0, 100)
+        try {
+            if (cookies.currentUser.privilege == null) {
+                setIsLoggedIn(false)
+            } else {
+                setIsLoggedIn(true)
+            }
+        } catch (error) {
+            setIsLoggedIn(false)
+        }
         fetchArticles()
 
     }, [])
@@ -41,9 +53,9 @@ const StatusView = () => {
             res.data.forEach((element) => {
                 newArtArray.push({
                     title: element.title,
-                    text: element.newsText
+                    text: element.newsText,
+                    id: element.id,
                 })
-                console.log(element)
             })
             setArticles(newArtArray)
         })
@@ -51,17 +63,41 @@ const StatusView = () => {
         setLoading(false)
     }
 
+    function deleteNews(newsId){
+        console.log("deleting news-id " + newsId)
+        axios.delete(serverUrl + 'api/news/delete', {
+            data:{id: newsId}
+
+        }).then((response) => {
+            if (response.status === 200) {
+                console.log("News delete success")
+                fetchArticles()
+            }
+        }, (error) => {
+            console.log("error " + error);
+        });
+    }
+
     /**Returns all the AlertBar elements from each current alert defined. */
 
     /**Returns all the NewsArticle elements from each article */
-    const getArticles =() => {
-        return(
-            articles.map((article) => (<NewsArticle article={article}/>))
+    const getArticles = () => {
+        return (
+            articles.map((article) =>
+                isLoggedIn ? (
+                    <div>
+                        <NewsArticle article={article}/>
+                        <button  onClick={()=> deleteNews(article.id)} type="button" className="btn btn-danger">Delete news</button>
+                    </div>
+                ) : <div>
+                    <NewsArticle article={article}/>
+                </div>
+            )
         )
     }
-    if (!loading){
-        return (
+    if (!loading) {
 
+        return (
             <div className='alertView'>
                 <WeatherAndTime/>
 

@@ -13,10 +13,6 @@ const NewsArticle = ({article}) => {
       <p className='article'>
         {article.text}
       </p>
-
-      <p className='article'>
-          {article.key}
-      </p>
     </div>
     
   )

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {LeafPoll, Result} from 'react-leaf-polls'
 import axios from "axios";
 import 'react-leaf-polls/dist/index.css'
-import {ReactNotifications, Store} from 'react-notifications-component'
+import {Store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import {useCookies} from "react-cookie";
 
