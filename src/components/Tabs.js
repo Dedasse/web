@@ -12,6 +12,7 @@ import StatusView from './StatusView/StatusView';
 import {useEffect} from "react";
 import darkstyles from '../darkstyles';
 import { Checkbox } from '@material-ui/core';
+import ToggleSwitch from './ToggleSwitch.css';
 
 
 const blue = {
@@ -29,9 +30,15 @@ const blue = {
 
 const Tab = styled(TabUnstyled)`
   
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
   color: white;
   cursor: pointer;
-  
   font-weight: bold;
   background-color: transparent;
   width: 100%;
@@ -68,7 +75,7 @@ const Tab = styled(TabUnstyled)`
 const TabPanel = styled(TabPanelUnstyled)`
   
   width: 100%;
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: "Poppins", sans-serif;
   
 `;
 
@@ -83,6 +90,7 @@ const TabsList = styled(TabsListUnstyled)`
   justify-content: center;
 `;
 
+
 export default function UnstyledTabsCustomized() {
     useEffect(() => {
         window.scrollTo(0,100)
@@ -94,9 +102,10 @@ export default function UnstyledTabsCustomized() {
                 <Tab>Video</Tab>
                 <Tab>Poll</Tab>
                 <Tab>Alert & News</Tab>
-                <Checkbox
+                <h8 style={{marginLeft: "18px"}}>darkmode</h8>
+                <Checkbox 
                 name="theme"
-                onChange={() => {
+                  onChange={() => {
                   if(window.localStorage.getItem('theme') === 'dark'){
                     window.localStorage.setItem('theme', 'light')
                   } else {
@@ -106,12 +115,12 @@ export default function UnstyledTabsCustomized() {
 
                 }}
                 checked={window.localStorage.getItem('theme') === 'dark'}
-                text='darkmode'>
+                text={'darkmode'}>
 
                 </Checkbox>
                
             </TabsList>
-            <TabPanel value={0}> <ScreenOne/></TabPanel>
+            <TabPanel value={0}><ScreenOne/></TabPanel>
             <TabPanel value={1}><ScreenTwo/></TabPanel>
             <TabPanel value={2}><ScreenThree/></TabPanel>
             <TabPanel value={3}><StatusView/></TabPanel>

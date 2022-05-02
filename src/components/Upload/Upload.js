@@ -14,11 +14,8 @@ const Upload = () => {
 
     return (
         <div className="main-container">
-             
-             <header>Admin Panel
-                <div className='checkbox'>
-                    <Checkbox 
-                    label="Switch"
+             <div className='checkbox'>
+              <Checkbox 
                 name="theme"
                 onChange={() => {
                   if(window.localStorage.getItem('theme') === 'dark'){
@@ -32,12 +29,10 @@ const Upload = () => {
                 checked={window.localStorage.getItem('theme') === 'dark'}
                 text={'darkmode'}
                 >
-                    
-                </Checkbox>  
-                </div>
-
-           
-             </header>
+              </Checkbox>  
+              <h8>darkmode</h8>
+              </div>
+             <header>Admin Panel</header>
             
              <div className="float-left">
              <PlusButton/>

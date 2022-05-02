@@ -28,10 +28,12 @@
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    animation: mymove 20s infinite;
+    /*animation: mymove 20s infinite;
     animation-delay: none; 
     width: 380px;
-    height: 340px;
+    height: 340px;*/
+   
+    
 }
 
 @keyframes mymove {
@@ -39,18 +41,19 @@
     to { color: white; }
     from {left: 0px;}
     to {left: 100%;}
-       
-  }
+  
+}
   
 
 .newArticle{
     margin: 16px;
     padding: 10px;
     border-radius: 5px;
-   
+    
 }
 
 .articleTitle{
     color: dodgerblue;
+    margin-top: 20px;
 }
 

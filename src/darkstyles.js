@@ -1,3 +1,4 @@
+
 const darkstyles = 
 `
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
@@ -12,6 +13,10 @@ body {
 	line-height: 1.75em;
 	font-size: 16px;
 	background-color: #222;
+	color: #aaa;
+}
+
+._1xGEd {
 	color: #aaa;
 }
 
@@ -94,6 +99,12 @@ h3 {
 }
 
 
+@keyframes mymove {
+    from {color: white;}
+    to { color: white; }
+    from {left: 0px;}
+    to {left: 100%;}
+}
 
 hr {
 	height: 1px;

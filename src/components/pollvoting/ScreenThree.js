@@ -5,6 +5,7 @@ import 'react-leaf-polls/dist/index.css'
 import {Store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import {useCookies} from "react-cookie";
+import { color } from "@mui/system";
 
 
 export default function ScreenThree() {
@@ -55,7 +56,7 @@ export default function ScreenThree() {
     }
 
     const pollTheme = {
-        textColor: '#19181f',
+        textColor: '#aaa;',
         mainColor: '#7579ff',
         backgroundColor: 'white',
         alignment: 'center',
@@ -169,8 +170,8 @@ export default function ScreenThree() {
                 paddingBottom: '200px',
                 margin: 'auto',
                 width: '500px',
-
-                marginTop: '10px'
+                marginTop: '20px'
+                
             }}>
                 {elementArray}
             </div>
