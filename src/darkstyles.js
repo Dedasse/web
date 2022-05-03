@@ -103,8 +103,8 @@ h3 {
 }
 
 .btn-outline-dark {
-    color: white;
-    border-color: white;
+    color: #0d6efd;
+    border-color: #0d6efd;
 }
 
 
