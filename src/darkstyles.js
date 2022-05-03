@@ -102,6 +102,11 @@ h3 {
     background-color:  #222;
 }
 
+.btn-outline-dark {
+    color: white;
+    border-color: white;
+}
+
 
 @keyframes mymove {
     from {color: white;}
