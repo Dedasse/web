@@ -72,7 +72,7 @@ return(
                 </div></div>
                <QRCode 
                 id="qrCodeEl"
-                size={290}
+                size={250}
                 level={"H"}
                 includeMargin={true}
                 value={qrCodeText}

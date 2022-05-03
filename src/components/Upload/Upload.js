@@ -30,7 +30,7 @@ const Upload = () => {
                 text={'darkmode'}
                 >
               </Checkbox>  
-              <h8>darkmode</h8>
+              <span>darkmode</span>
               </div>
              <header>Admin Panel</header>
             

@@ -28,12 +28,12 @@ const PreView = ({file}) => {
       {file.type === "document/pdf" || file.type === "application/pdf" ?
         <div className="col-sm-12" style={{flexGrow: 1, justifyItems:"baseline", justifyContent:"row", }}>
           <div className="card shadow-sm" style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
-          <div className="card-header">File name: {file.name}</div>
+          <div className="card-header">Title: {file.name}</div>
           <div className="card-body">
-           <p>type: {file.type}</p> 
-            <p>uploadedBy: {file.uploadedBy}</p>
-            <p>filename:{file.filename}</p>
-          <p>showTime: <input type="number" value={time / 1000} onChange={(e) => setTime(e.target.value * 1000)} /></p>
+           <p>Type: {file.type}</p> 
+            <p>UploadedBy: {file.uploadedBy}</p>
+            <p>Filename: {file.filename}</p>
+          <p>ShowTime: <input type="number" value={time / 1000} onChange={(e) => setTime(e.target.value * 1000)} /></p>
           <p>.s expireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /></p></div>
           <div className="d-flex flex-column align-items-center">
           <button className="btn btn-outline-primary" style={{width: "18rem", margin:"5px", }} onClick={() => {
@@ -48,12 +48,12 @@ const PreView = ({file}) => {
             }}>Delete</button>
         </div></div></div> : file.type === "video/mp4" ?
         <div className="card shadow-sm" style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
-        <div className="card-header">File name: {file.name}</div>
+        <div className="card-header">Title: {file.name}</div>
         <div className="card-body">
-            <p>type: {file.type}</p>  
-            <p>uploadedBy: {file.uploadedBy}</p>
-            <p>filename:{file.filename} </p>
-            <p>expireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /></p></div>
+            <p>Type: {file.type}</p>  
+            <p>UploadedBy: {file.uploadedBy}</p>
+            <p>Filename: {file.filename} </p>
+            <p>ExpireDate: <input type="datetime" value={date} onChange={(e) => setDate(e.target.value)} /></p></div>
             <div className="d-flex flex-column align-items-center"> 
               <button className="btn btn-outline-primary" style={{width: "18rem", margin:"5px", }} onClick={() => {
             const data = {file}

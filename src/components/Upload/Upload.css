@@ -26,10 +26,7 @@ header{
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  
 }
-
-
 
 .dand{
   display: flex;
@@ -42,7 +39,6 @@ header{
   padding: 5px;
   min-width: 320px;
   margin: 4px;
-
 }
 
 .dnd-container{
@@ -57,12 +53,10 @@ header{
   border: 4px dashed black;
   border-radius: 15px;
   background: #7579ff;
-
 }
 
 .dnd-container p{
   margin-top: 10px;
-
 }
 
 .svg-inline--fa {
@@ -71,7 +65,6 @@ header{
   padding-bottom: 5px;
   animation: animate 5s infinite;
   animation-timing-function: linear;
-
 }
 
 @keyframes animate{
@@ -86,8 +79,6 @@ header{
   }
 }
 
-
-
 h6{
   margin: 6px;
   display: flex;
@@ -95,15 +86,13 @@ h6{
   font-size: large;
   text-align: center;
   display: flex;
- 
 }
 
 span{
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color:#D8D8D8;
   margin: 10px 0 15px 0;
-
 }
 
 .savePublish{
@@ -114,13 +103,12 @@ span{
   border-radius: 15px ;
   text-align: center;
   margin: 4px;
-
+  height: 300px;
 }
 
 .main-container{
   display: flex;
   flex-flow: row wrap;
-
 }
 
 .publish{
@@ -133,7 +121,6 @@ span{
   justify-content: center;
   display: flex;
   align-items: flex-start;
-
 }
 
 .float-right {
@@ -143,7 +130,6 @@ span{
   display: -webkit-flex;
   min-width: 320px;
   color: #7579ff;
-
 }
 
 .float-left {
@@ -163,7 +149,6 @@ span{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
 .lower-portion{
@@ -176,12 +161,10 @@ span{
 .inserver .card{
   margin: 4px;
   display: flex;
-
 }
 
 .button{
   align-items: center;
-
 }
 
 
@@ -190,13 +173,11 @@ span{
   border-radius: 4px;
   border: 2px solid dodgerblue;
   padding: 2px;
-
 }
 
 .btn:hover {
   border: black;
   padding: 2px;
-
 }
 
 .circular_menu{
@@ -217,23 +198,19 @@ span{
   justify-content: center;
   align-items: center;
   margin-top: 24px;
- 
 }
 
 .iZWQdS {
   z-index: 101;
   position: relative;
-
 }
 
 .eDKpst{
   margin: 60px;
-
 }
 
 .gwqQIP{
   margin: 60px;
-
 }
 
 .QRCode{
@@ -251,13 +228,13 @@ span{
 
 .py-4{
   margin: 10px;
-
 }
 
 canvas#qrCodeEl{
   display: flex;
   justify-content: center;
-  
+  border-radius: 6px;
+  margin-top: 8px;
 }
 
 
@@ -267,7 +244,6 @@ canvas#qrCodeEl{
 
 .main-container{
   width: 100%;
-
 }
 
   .lower-portion{
@@ -275,14 +251,12 @@ canvas#qrCodeEl{
     width: 100%;
     float: left;
     display: flex;
-
   }
 
   .savePublish{
     width: 100%;
     justify-content: center;
     margin: 10px;
-
   }
 
   .circular_menu{
@@ -305,7 +279,6 @@ canvas#qrCodeEl{
     float: left;
     display: flex;
     justify-content: center;
-
   }
 
   .dnd-container{
@@ -323,16 +296,24 @@ canvas#qrCodeEl{
   .buttons{
     display: block;
     justify-content: center;
-
   }
   
   .QRCodeAdmin{
     display: flex;
     justify-content: center;
-    
   }
+
+  .main-container .checkbox, h8 {
+    
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+.MuiSvgIcon-root {
+ ;
 }
 
+}
 
 
 

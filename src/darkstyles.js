@@ -44,6 +44,10 @@ body {
 	border-top: 1px solid #aaa;
 }
 
+header {
+	color: #D8D8D8;
+}
+
 p {
 	font-size: 16px;
 }
