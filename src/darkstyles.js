@@ -77,11 +77,12 @@ h3 {
 
 .dand{
     background-color:  #222;
+	border: 4px dashed grey;
 }
 
 .dnd-container{
     background-color: #222;
-    border-color:  #D8D8D8;
+   
 }
 
 .card-header{
@@ -104,7 +105,7 @@ h3 {
 
 .btn-outline-dark {
     color: #0d6efd;
-    border-color: #0d6efd;
+    border-color: white;
 }
 
 
