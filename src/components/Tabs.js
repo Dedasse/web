@@ -73,7 +73,6 @@ const Tab = styled(TabUnstyled)`
 `;
 
 const TabPanel = styled(TabPanelUnstyled)`
-  
   width: 100%;
   font-family: "Poppins", sans-serif;
   
@@ -102,23 +101,7 @@ export default function UnstyledTabsCustomized() {
                 <Tab>Video</Tab>
                 <Tab>Poll</Tab>
                 <Tab>Alert & News</Tab>
-                <h8 style={{marginLeft: "18px"}}>darkmode</h8>
-                <Checkbox 
-                name="theme"
-                  onChange={() => {
-                  if(window.localStorage.getItem('theme') === 'dark'){
-                    window.localStorage.setItem('theme', 'light')
-                  } else {
-                    window.localStorage.setItem('theme', 'dark')
-                  }
-                  window.location.reload()
-
-                }}
-                checked={window.localStorage.getItem('theme') === 'dark'}
-                text={'darkmode'}>
-
-                </Checkbox>
-               
+                             
             </TabsList>
             <TabPanel value={0}><ScreenOne/></TabPanel>
             <TabPanel value={1}><ScreenTwo/></TabPanel>

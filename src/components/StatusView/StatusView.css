@@ -28,10 +28,10 @@
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    /*animation: mymove 20s infinite;
+    animation: mymove 20s infinite;
     animation-delay: none; 
     width: 380px;
-    height: 340px;*/
+    height: 320px;
    
     
 }
@@ -54,6 +54,6 @@
 
 .articleTitle{
     color: dodgerblue;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
